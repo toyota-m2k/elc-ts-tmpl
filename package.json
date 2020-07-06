@@ -1,0 +1,44 @@
+{
+  "name": "editor",
+  "version": "1.0.0",
+  "description": "a little text editor.",
+  "main": "js/main.js",
+  "author": "toyota-m2k",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prestart": "yarn run build",
+    "start": "electron .",
+    "package": "electron-builder --win --x64"
+  },
+  "build": {
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "js",
+      "view",
+      "package.json",
+      "yarn.lock"
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis":{
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "electron": "^9.0.5",
+    "electron-builder": "^22.7.0",
+    "typescript": "^3.9.6"
+  }
+}
